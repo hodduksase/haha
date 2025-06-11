@@ -3,9 +3,12 @@ services:
     name: discord-kakao-bot
     env: node
     plan: free
-    buildCommand: npm install
-    startCommand: npm start
+    region: oregon
+    buildCommand: npm install --production
+    startCommand: node src/index.js
     envVars:
+      - key: NODE_VERSION
+        value: "18"
       - key: DISCORD_BOT_TOKEN
         sync: false
       - key: DISCORD_APPLICATION_ID
@@ -15,4 +18,4 @@ services:
       - key: KAKAO_WEBHOOK_URL
         sync: false
       - key: PORT
-        value: "3000" 
+        value: "10000" 
